@@ -2,24 +2,30 @@ import { Movie } from "../App";
 
 type MovieCardProps = {
   movie: Movie;
+  handleShowMovieDetail: (movieId: string) => void;
 }
 
-const MovieCard = ({ movie }: MovieCardProps) => {
+const notFoundImgURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM2bFljw_vR_FJ9erlrZJbjE5QPO-QO46RjRFdNKV5se7Rf6IEEzDEGE-rxUMxBqQIOGQ&usqp=CAU"
+
+const MovieCard = ({ movie, handleShowMovieDetail }: MovieCardProps) => {
   return (
-    <div className="movie">
-    <div>
-      <p>{movie.year}</p>
-    </div>
-
-    <div>
-      <img src={movie.poster !== "N/A" ? movie.poster : "https://via.placeholder.com/400"} alt={movie.title} />
-    </div>
-
-    <div>
-      <span>{movie.type}</span>
+    <div className="movieCard">
       <h3>{movie.title}</h3>
+      
+      <div>
+        <button onClick={() => handleShowMovieDetail(movie.id)}>
+          <img src={movie.poster !== "N/A" ? movie.poster : notFoundImgURL } alt={movie.title} />
+        </button>
+      </div>
+
+      <div>
+        <p>Year of release: {movie.year}</p>
+      </div>
+
+      <div>
+        <span>Type: {movie.type}</span>
+      </div>
     </div>
-  </div>
   )
 }
 

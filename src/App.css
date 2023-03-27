@@ -1,0 +1,27 @@
+.container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.movieList {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.movieCard {
+    margin: 1.3rem;
+    border-radius: 3px;
+    border: solid;
+}
+
+.movieCard img {
+    cursor: pointer;
+}
+  

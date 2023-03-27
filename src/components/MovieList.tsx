@@ -3,13 +3,14 @@ import MovieCard from "./MovieCard";
 
 type MovieListProps = {
   movies: Movie[];
+  handleShowMovieDetail: (movieId: string) => void;
 }
 
-const MovieList = ({ movies }: MovieListProps) => {
+const MovieList = ({ movies, handleShowMovieDetail }: MovieListProps) => {
   return (
-    <div>
+    <div className="movieList">
       {movies.map((movie) => {
-        return <MovieCard movie = { movie } />
+        return <MovieCard  key={ movie.id } movie = { movie } handleShowMovieDetail={ handleShowMovieDetail }/>
       })}
     </div>
   )
