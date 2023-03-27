@@ -1,15 +1,22 @@
 type SearchBarProps = { 
-    movieTitle: string;
+    searchTerm: string;
+    handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const SearchBar = ({ movieTitle }: SearchBarProps) => {
+const SearchBar = ({ searchTerm, handleSearchChange,  handleSubmit }: SearchBarProps) => {
+
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
         <input 
             type="text" 
             placeholder="Search for movie" 
-            value={movieTitle}
+            value={searchTerm}
+            onChange={handleSearchChange}
         />
+        <button type="submit">
+            Search
+        </button>
     </form>
   )
 }

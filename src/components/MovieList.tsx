@@ -2,15 +2,15 @@ import { Movie } from "../App";
 import MovieCard from "./MovieCard";
 
 type MovieListProps = {
-    movies: Movie[];
+  movies: Movie[];
 }
 
 const MovieList = ({ movies }: MovieListProps) => {
   return (
     <div>
-    {movies.length ?? movies.map((movie) => {
-        <MovieCard movie={movie}/>
-    })}
+      {movies.map((movie) => {
+        return <MovieCard movie = { movie } />
+      })}
     </div>
   )
 }
